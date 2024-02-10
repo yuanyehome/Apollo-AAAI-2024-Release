@@ -1,0 +1,12 @@
+.vscode/
+**/node_modules/
+**/__pycache__/
+**/.ipynb_checkpoints/
+hostfile*
+train_datasets/
+train_datasets
+experiments/
+wandb/
+logs/
+.hypothesis/
+**/.DS_Store

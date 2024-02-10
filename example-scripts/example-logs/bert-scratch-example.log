@@ -1,0 +1,350 @@
+nohup: ignoring input
+torchrun --nproc_per_node 8 --master_addr localhost --master_port 47489 run_pretrain_bert.py --tokenizer_name bert-base-uncased --config_name bert-base-uncased --per_device_train_batch_size 48 --gradient_accumulation_steps 4 --num_train_epochs 10 --do_train --bf16 --streaming --ddp_timeout 36000 --save_strategy epoch --save_total_limit 1 --learning_rate 0.0001 --weight_decay 0.01 --seed 42 --warmup_ratio 0.025 --lr_scheduler_type cosine --logging_steps 1 --output_dir experiments/bert-scratch-example --my_debug
+02/01/2024 21:26:47 - WARNING - __main__ - Process rank: 3, device: cuda:3, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:26:48 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:26:48 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=36000,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0001,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=experiments/bert-scratch-example/runs/Feb01_21-26-47_job-3da96a00-b4a8-4d71-a8be-30e70834c164-master-0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=10.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=experiments/bert-scratch-example,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=48,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard', 'wandb'],
+resume_from_checkpoint=None,
+run_name=experiments/bert-scratch-example,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=epoch,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.025,
+warmup_steps=0,
+weight_decay=0.01,
+)
+02/01/2024 21:26:48 - WARNING - __main__ - Process rank: 5, device: cuda:5, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:26:48 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:26:48 - WARNING - __main__ - Process rank: 6, device: cuda:6, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:26:48 - WARNING - __main__ - Process rank: 2, device: cuda:2, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:26:48 - WARNING - __main__ - Process rank: 7, device: cuda:7, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:26:48 - WARNING - __main__ - Process rank: 4, device: cuda:4, n_gpu: 1, distributed training: True, 16-bits training: False
+config.json:   0%|          | 0.00/570 [00:00<?, ?B/s]config.json: 100%|██████████| 570/570 [00:00<00:00, 3.63MB/s]
+[INFO|configuration_utils.py:729] 2024-02-01 21:27:24,176 >> loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/config.json
+[INFO|configuration_utils.py:792] 2024-02-01 21:27:24,177 >> Model config BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.37.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+tokenizer_config.json:   0%|          | 0.00/28.0 [00:00<?, ?B/s]tokenizer_config.json: 100%|██████████| 28.0/28.0 [00:00<00:00, 248kB/s]
+[INFO|configuration_utils.py:729] 2024-02-01 21:27:24,811 >> loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/config.json
+[INFO|configuration_utils.py:792] 2024-02-01 21:27:24,812 >> Model config BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.37.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+vocab.txt:   0%|          | 0.00/232k [00:00<?, ?B/s]vocab.txt: 100%|██████████| 232k/232k [00:00<00:00, 973kB/s]vocab.txt: 100%|██████████| 232k/232k [00:00<00:00, 972kB/s]
+tokenizer.json:   0%|          | 0.00/466k [00:00<?, ?B/s]tokenizer.json: 100%|██████████| 466k/466k [00:00<00:00, 635kB/s]tokenizer.json: 100%|██████████| 466k/466k [00:00<00:00, 634kB/s]
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:27:27,915 >> loading file vocab.txt from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/vocab.txt
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:27:27,915 >> loading file tokenizer.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/tokenizer.json
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:27:27,915 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:27:27,915 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:27:27,915 >> loading file tokenizer_config.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/tokenizer_config.json
+[INFO|configuration_utils.py:729] 2024-02-01 21:27:27,915 >> loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/config.json
+[INFO|configuration_utils.py:792] 2024-02-01 21:27:27,916 >> Model config BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.37.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+02/01/2024 21:27:27 - INFO - __main__ - Training new model from scratch
+[INFO|configuration_utils.py:826] 2024-02-01 21:27:27,944 >> Generate config GenerationConfig {
+  "pad_token_id": 0
+}
+
+Map:   0%|          | 0/10000 [00:00<?, ? examples/s][WARNING|tokenization_utils_base.py:3841] 2024-02-01 21:27:29,469 >> Token indices sequence length is longer than the specified maximum sequence length for this model (845 > 512). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /share/project/yuanye/important/apollo-aaai-2024/train_datasets/train/cache-e82ced829ccf78c7.arrow
+02/01/2024 21:27:29 - INFO - datasets.arrow_dataset - Caching processed dataset at /share/project/yuanye/important/apollo-aaai-2024/train_datasets/train/cache-e82ced829ccf78c7.arrow
+Map:  10%|█         | 1000/10000 [00:00<00:00, 9648.07 examples/s]Map:  30%|███       | 3000/10000 [00:00<00:00, 12558.34 examples/s]Map:  50%|█████     | 5000/10000 [00:00<00:00, 13115.68 examples/s]Map:  70%|███████   | 7000/10000 [00:00<00:00, 13888.94 examples/s]Map:  90%|█████████ | 9000/10000 [00:00<00:00, 14956.04 examples/s]Map: 100%|██████████| 10000/10000 [00:00<00:00, 13974.03 examples/s]
+Map:   0%|          | 0/10000 [00:00<?, ? examples/s]Caching processed dataset at /share/project/yuanye/important/apollo-aaai-2024/train_datasets/train/cache-90736afe926487e9.arrow
+02/01/2024 21:27:38 - INFO - datasets.arrow_dataset - Caching processed dataset at /share/project/yuanye/important/apollo-aaai-2024/train_datasets/train/cache-90736afe926487e9.arrow
+Map:  10%|█         | 1000/10000 [00:00<00:01, 6849.03 examples/s]Map:  20%|██        | 2000/10000 [00:00<00:01, 7739.60 examples/s]Map:  30%|███       | 3000/10000 [00:00<00:00, 7028.24 examples/s]Map:  40%|████      | 4000/10000 [00:00<00:00, 7241.93 examples/s]Map:  50%|█████     | 5000/10000 [00:00<00:00, 7087.55 examples/s]Map:  60%|██████    | 6000/10000 [00:00<00:00, 7136.66 examples/s]Map:  70%|███████   | 7000/10000 [00:00<00:00, 7302.28 examples/s]Map:  80%|████████  | 8000/10000 [00:01<00:00, 7817.27 examples/s]Map:  90%|█████████ | 9000/10000 [00:01<00:00, 7839.69 examples/s]Map: 100%|██████████| 10000/10000 [00:01<00:00, 8191.23 examples/s]Map: 100%|██████████| 10000/10000 [00:01<00:00, 7553.92 examples/s]
+02/01/2024 21:27:39 - WARNING - accelerate.utils.other - Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[INFO|trainer.py:571] 2024-02-01 21:27:40,292 >> Using auto half precision backend
+[INFO|trainer.py:718] 2024-02-01 21:27:40,601 >> The following columns in the training set don't have a corresponding argument in `BertForMaskedLM.forward` and have been ignored: special_tokens_mask. If special_tokens_mask are not expected by `BertForMaskedLM.forward`,  you can safely ignore this message.
+[INFO|trainer.py:1721] 2024-02-01 21:27:40,833 >> ***** Running training *****
+[INFO|trainer.py:1722] 2024-02-01 21:27:40,833 >>   Num examples = 1,266
+[INFO|trainer.py:1723] 2024-02-01 21:27:40,833 >>   Num Epochs = 10
+[INFO|trainer.py:1724] 2024-02-01 21:27:40,833 >>   Instantaneous batch size per device = 48
+[INFO|trainer.py:1727] 2024-02-01 21:27:40,833 >>   Total train batch size (w. parallel, distributed & accumulation) = 1,536
+[INFO|trainer.py:1728] 2024-02-01 21:27:40,833 >>   Gradient Accumulation steps = 4
+[INFO|trainer.py:1729] 2024-02-01 21:27:40,833 >>   Total optimization steps = 10
+[INFO|trainer.py:1730] 2024-02-01 21:27:40,833 >>   Number of trainable parameters = 109,514,298
+[INFO|integration_utils.py:722] 2024-02-01 21:27:40,853 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+  0%|          | 0/10 [00:00<?, ?it/s][rank5]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank4]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank7]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank2]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank3]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank1]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank0]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank6]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+ 10%|█         | 1/10 [00:02<00:23,  2.58s/it]                                              {'loss': 10.4585, 'learning_rate': 0.0001, 'epoch': 1.0}
+ 10%|█         | 1/10 [00:02<00:23,  2.58s/it][INFO|trainer.py:2926] 2024-02-01 21:27:47,132 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-1
+[INFO|configuration_utils.py:473] 2024-02-01 21:27:47,149 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-1/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:27:47,151 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-1/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:27:47,633 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-1/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:27:47,636 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-1/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:27:47,637 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-1/special_tokens_map.json
+ 20%|██        | 2/10 [00:05<00:21,  2.71s/it]                                              {'loss': 10.4562, 'learning_rate': 9.698463103929542e-05, 'epoch': 2.0}
+ 20%|██        | 2/10 [00:05<00:21,  2.71s/it][INFO|trainer.py:2926] 2024-02-01 21:27:49,923 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-2
+[INFO|configuration_utils.py:473] 2024-02-01 21:27:49,938 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-2/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:27:49,940 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-2/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:27:50,405 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-2/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:27:50,407 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-2/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:27:50,408 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-2/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:27:51,173 >> Deleting older checkpoint [experiments/bert-scratch-example/checkpoint-1] due to args.save_total_limit
+ 30%|███       | 3/10 [00:08<00:19,  2.76s/it]                                              {'loss': 9.8241, 'learning_rate': 8.83022221559489e-05, 'epoch': 3.0}
+ 30%|███       | 3/10 [00:08<00:19,  2.76s/it][INFO|trainer.py:2926] 2024-02-01 21:27:52,733 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-3
+[INFO|configuration_utils.py:473] 2024-02-01 21:27:52,748 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-3/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:27:52,750 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-3/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:27:53,209 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-3/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:27:53,212 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-3/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:27:53,213 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-3/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:27:53,986 >> Deleting older checkpoint [experiments/bert-scratch-example/checkpoint-2] due to args.save_total_limit
+ 40%|████      | 4/10 [00:11<00:16,  2.78s/it]                                              {'loss': 9.5486, 'learning_rate': 7.500000000000001e-05, 'epoch': 4.0}
+ 40%|████      | 4/10 [00:11<00:16,  2.78s/it][INFO|trainer.py:2926] 2024-02-01 21:27:55,556 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-4
+[INFO|configuration_utils.py:473] 2024-02-01 21:27:55,571 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-4/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:27:55,573 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-4/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:27:56,027 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-4/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:27:56,029 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-4/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:27:56,030 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-4/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:27:56,790 >> Deleting older checkpoint [experiments/bert-scratch-example/checkpoint-3] due to args.save_total_limit
+ 50%|█████     | 5/10 [00:13<00:13,  2.79s/it]                                              {'loss': 9.3878, 'learning_rate': 5.868240888334653e-05, 'epoch': 5.0}
+ 50%|█████     | 5/10 [00:13<00:13,  2.79s/it][INFO|trainer.py:2926] 2024-02-01 21:27:58,360 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-5
+[INFO|configuration_utils.py:473] 2024-02-01 21:27:58,375 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-5/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:27:58,377 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-5/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:27:58,863 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-5/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:27:58,866 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-5/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:27:58,867 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-5/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:27:59,651 >> Deleting older checkpoint [experiments/bert-scratch-example/checkpoint-4] due to args.save_total_limit
+ 60%|██████    | 6/10 [00:16<00:11,  2.82s/it]                                              {'loss': 9.2995, 'learning_rate': 4.131759111665349e-05, 'epoch': 6.0}
+ 60%|██████    | 6/10 [00:16<00:11,  2.82s/it][INFO|trainer.py:2926] 2024-02-01 21:28:01,235 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-6
+[INFO|configuration_utils.py:473] 2024-02-01 21:28:01,252 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-6/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:28:01,255 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-6/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:28:01,716 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-6/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:28:01,721 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-6/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:28:01,723 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-6/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:28:02,499 >> Deleting older checkpoint [experiments/bert-scratch-example/checkpoint-5] due to args.save_total_limit
+ 70%|███████   | 7/10 [00:19<00:08,  2.82s/it]                                              {'loss': 9.228, 'learning_rate': 2.500000000000001e-05, 'epoch': 7.0}
+ 70%|███████   | 7/10 [00:19<00:08,  2.82s/it][INFO|trainer.py:2926] 2024-02-01 21:28:04,059 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-7
+[INFO|configuration_utils.py:473] 2024-02-01 21:28:04,075 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-7/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:28:04,077 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-7/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:28:04,560 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-7/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:28:04,562 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-7/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:28:04,563 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-7/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:28:05,338 >> Deleting older checkpoint [experiments/bert-scratch-example/checkpoint-6] due to args.save_total_limit
+ 80%|████████  | 8/10 [00:22<00:05,  2.83s/it]                                              {'loss': 9.1699, 'learning_rate': 1.1697777844051105e-05, 'epoch': 8.0}
+ 80%|████████  | 8/10 [00:22<00:05,  2.83s/it][INFO|trainer.py:2926] 2024-02-01 21:28:06,903 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-8
+[INFO|configuration_utils.py:473] 2024-02-01 21:28:06,918 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-8/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:28:06,920 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-8/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:28:07,381 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-8/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:28:07,384 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-8/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:28:07,389 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-8/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:28:08,159 >> Deleting older checkpoint [experiments/bert-scratch-example/checkpoint-7] due to args.save_total_limit
+ 90%|█████████ | 9/10 [00:25<00:02,  2.83s/it]                                              {'loss': 9.1529, 'learning_rate': 3.0153689607045845e-06, 'epoch': 9.0}
+ 90%|█████████ | 9/10 [00:25<00:02,  2.83s/it][INFO|trainer.py:2926] 2024-02-01 21:28:09,724 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-9
+[INFO|configuration_utils.py:473] 2024-02-01 21:28:09,739 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-9/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:28:09,741 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-9/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:28:10,223 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-9/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:28:10,225 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-9/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:28:10,227 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-9/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:28:11,029 >> Deleting older checkpoint [experiments/bert-scratch-example/checkpoint-8] due to args.save_total_limit
+100%|██████████| 10/10 [00:28<00:00,  2.86s/it]                                               {'loss': 9.1365, 'learning_rate': 0.0, 'epoch': 10.0}
+100%|██████████| 10/10 [00:28<00:00,  2.86s/it][INFO|trainer.py:2926] 2024-02-01 21:28:12,665 >> Saving model checkpoint to experiments/bert-scratch-example/tmp-checkpoint-10
+[INFO|configuration_utils.py:473] 2024-02-01 21:28:12,681 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-10/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:28:12,683 >> Configuration saved in experiments/bert-scratch-example/tmp-checkpoint-10/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:28:13,186 >> Model weights saved in experiments/bert-scratch-example/tmp-checkpoint-10/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:28:13,189 >> tokenizer config file saved in experiments/bert-scratch-example/tmp-checkpoint-10/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:28:13,190 >> Special tokens file saved in experiments/bert-scratch-example/tmp-checkpoint-10/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:28:14,063 >> Deleting older checkpoint [experiments/bert-scratch-example/checkpoint-9] due to args.save_total_limit
+[INFO|trainer.py:1962] 2024-02-01 21:28:14,144 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               {'train_runtime': 33.3113, 'train_samples_per_second': 380.051, 'train_steps_per_second': 0.3, 'train_loss': 9.566190719604492, 'epoch': 10.0}
+100%|██████████| 10/10 [00:29<00:00,  2.86s/it]100%|██████████| 10/10 [00:29<00:00,  2.96s/it]
+[INFO|trainer.py:2926] 2024-02-01 21:28:14,158 >> Saving model checkpoint to experiments/bert-scratch-example
+[INFO|configuration_utils.py:473] 2024-02-01 21:28:14,164 >> Configuration saved in experiments/bert-scratch-example/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:28:14,168 >> Configuration saved in experiments/bert-scratch-example/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:28:14,671 >> Model weights saved in experiments/bert-scratch-example/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:28:14,675 >> tokenizer config file saved in experiments/bert-scratch-example/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:28:14,676 >> Special tokens file saved in experiments/bert-scratch-example/special_tokens_map.json
+***** train metrics *****
+  epoch                    =       10.0
+  train_loss               =     9.5662
+  train_runtime            = 0:00:33.31
+  train_samples            =       1266
+  train_samples_per_second =    380.051
+  train_steps_per_second   =        0.3

@@ -1,0 +1,385 @@
+nohup: ignoring input
+torchrun --nproc_per_node 8 --master_addr localhost --master_port 47489 run_pretrain_bert_apollo.py --tokenizer_name bert-base-uncased --config_name bert-base-uncased --per_device_train_batch_size 48 --gradient_accumulation_steps 4 --num_train_epochs 10 --do_train --bf16 --streaming --ddp_timeout 36000 --save_strategy epoch --save_total_limit 1 --learning_rate 0.0001 --weight_decay 0.01 --seed 42 --warmup_ratio 0.025 --lr_scheduler_type cosine --logging_steps 1 --output_dir experiments/bert-apollo-example --apollo_info_output_file example-scripts/example-logs/bert-apollo-info/apollo_info --apollo_epoch_list 1,2,5,10 --apollo_layers 1,3,6,12 --dist_function lvps --grow_method extend --my_debug
+02/01/2024 21:49:41 - WARNING - __main__ - Process rank: 3, device: cuda:3, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:49:41 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:49:41 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=36000,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0001,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=experiments/bert-apollo-example/runs/Feb01_21-49-41_job-3da96a00-b4a8-4d71-a8be-30e70834c164-master-0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=10.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=experiments/bert-apollo-example,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=48,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard', 'wandb'],
+resume_from_checkpoint=None,
+run_name=experiments/bert-apollo-example,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=epoch,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.025,
+warmup_steps=0,
+weight_decay=0.01,
+)
+02/01/2024 21:49:41 - WARNING - __main__ - Process rank: 2, device: cuda:2, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:49:41 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:49:41 - WARNING - __main__ - Process rank: 4, device: cuda:4, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:49:41 - WARNING - __main__ - Process rank: 5, device: cuda:5, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:49:41 - WARNING - __main__ - Process rank: 7, device: cuda:7, n_gpu: 1, distributed training: True, 16-bits training: False
+02/01/2024 21:49:41 - WARNING - __main__ - Process rank: 6, device: cuda:6, n_gpu: 1, distributed training: True, 16-bits training: False
+[INFO|configuration_utils.py:729] 2024-02-01 21:50:18,451 >> loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/config.json
+[INFO|configuration_utils.py:792] 2024-02-01 21:50:18,452 >> Model config BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.37.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|configuration_utils.py:729] 2024-02-01 21:50:18,831 >> loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/config.json
+[INFO|configuration_utils.py:792] 2024-02-01 21:50:18,832 >> Model config BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.37.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:50:18,832 >> loading file vocab.txt from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/vocab.txt
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:50:18,832 >> loading file tokenizer.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/tokenizer.json
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:50:18,832 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:50:18,832 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2027] 2024-02-01 21:50:18,832 >> loading file tokenizer_config.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/tokenizer_config.json
+[INFO|configuration_utils.py:729] 2024-02-01 21:50:18,833 >> loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--bert-base-uncased/snapshots/1dbc166cf8765166998eff31ade2eb64c8a40076/config.json
+[INFO|configuration_utils.py:792] 2024-02-01 21:50:18,833 >> Model config BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.37.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+02/01/2024 21:50:18 - INFO - __main__ - Training new model from scratch
+[INFO|configuration_utils.py:826] 2024-02-01 21:50:18,858 >> Generate config GenerationConfig {
+  "pad_token_id": 0
+}
+
+Loading cached processed dataset at /share/project/yuanye/important/apollo-aaai-2024/train_datasets/train/cache-d613ae320e07656a.arrow
+02/01/2024 21:50:22 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /share/project/yuanye/important/apollo-aaai-2024/train_datasets/train/cache-d613ae320e07656a.arrow
+Loading cached processed dataset at /share/project/yuanye/important/apollo-aaai-2024/train_datasets/train/cache-f822d5a2455e958d.arrow
+02/01/2024 21:50:28 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /share/project/yuanye/important/apollo-aaai-2024/train_datasets/train/cache-f822d5a2455e958d.arrow
+02/01/2024 21:50:28 - WARNING - accelerate.utils.other - Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Total steps: 10
+[INFO|trainer.py:571] 2024-02-01 21:50:28,754 >> Using auto half precision backend
+[INFO|trainer.py:718] 2024-02-01 21:50:28,755 >> The following columns in the training set don't have a corresponding argument in `ApolloBertForMaskedLM.forward` and have been ignored: special_tokens_mask. If special_tokens_mask are not expected by `ApolloBertForMaskedLM.forward`,  you can safely ignore this message.
+Total steps: 10
+Total steps: 10
+Total steps: 10
+Total steps: 10
+Total steps: 10
+Total steps: 10
+[INFO|trainer.py:718] 2024-02-01 21:50:28,915 >> The following columns in the training set don't have a corresponding argument in `ApolloBertForMaskedLM.forward` and have been ignored: special_tokens_mask. If special_tokens_mask are not expected by `ApolloBertForMaskedLM.forward`,  you can safely ignore this message.
+Total steps: 10
+[INFO|trainer.py:1721] 2024-02-01 21:50:29,196 >> ***** Running training *****
+[INFO|trainer.py:1722] 2024-02-01 21:50:29,196 >>   Num examples = 1,266
+[INFO|trainer.py:1723] 2024-02-01 21:50:29,196 >>   Num Epochs = 10
+[INFO|trainer.py:1724] 2024-02-01 21:50:29,196 >>   Instantaneous batch size per device = 48
+[INFO|trainer.py:1727] 2024-02-01 21:50:29,196 >>   Total train batch size (w. parallel, distributed & accumulation) = 1,536
+[INFO|trainer.py:1728] 2024-02-01 21:50:29,196 >>   Gradient Accumulation steps = 4
+[INFO|trainer.py:1729] 2024-02-01 21:50:29,196 >>   Total optimization steps = 10
+[INFO|trainer.py:1730] 2024-02-01 21:50:29,197 >>   Number of trainable parameters = 109,514,298
+[INFO|integration_utils.py:722] 2024-02-01 21:50:29,215 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+all_stack_points: [1, 2, 5, 10]
+all_stack_points: [1, 2, 5, 10]
+all_stack_points: [1, 2, 5, 10]
+all_stack_points: [1, 2, 5, 10]
+all_stack_points: [1, 2, 5, 10]
+all_stack_points: [1, 2, 5, 10]
+all_stack_points: [1, 2, 5, 10]
+  0%|          | 0/10 [00:00<?, ?it/s][INFO|trainer.py:718] 2024-02-01 21:50:33,192 >> The following columns in the training set don't have a corresponding argument in `ApolloBertForMaskedLM.forward` and have been ignored: special_tokens_mask. If special_tokens_mask are not expected by `ApolloBertForMaskedLM.forward`,  you can safely ignore this message.
+[INFO|trainer.py:718] 2024-02-01 21:50:33,194 >> The following columns in the training set don't have a corresponding argument in `ApolloBertForMaskedLM.forward` and have been ignored: special_tokens_mask. If special_tokens_mask are not expected by `ApolloBertForMaskedLM.forward`,  you can safely ignore this message.
+[INFO|trainer.py:718] 2024-02-01 21:50:33,195 >> The following columns in the training set don't have a corresponding argument in `ApolloBertForMaskedLM.forward` and have been ignored: special_tokens_mask. If special_tokens_mask are not expected by `ApolloBertForMaskedLM.forward`,  you can safely ignore this message.
+[INFO|trainer.py:718] 2024-02-01 21:50:33,196 >> The following columns in the training set don't have a corresponding argument in `ApolloBertForMaskedLM.forward` and have been ignored: special_tokens_mask. If special_tokens_mask are not expected by `ApolloBertForMaskedLM.forward`,  you can safely ignore this message.
+all_stack_points: [1, 2, 5, 10]
+ 10%|█         | 1/10 [00:01<00:14,  1.56s/it]                                              {'loss': 10.4974, 'learning_rate': 0.0001, 'epoch': 1.0}
+ 10%|█         | 1/10 [00:01<00:14,  1.56s/it][INFO|trainer.py:2926] 2024-02-01 21:50:34,678 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-1
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:34,705 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-1/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:34,707 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-1/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:35,189 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-1/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:35,192 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-1/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:35,194 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-1/special_tokens_map.json
+stack_model: Copy layer 0 to layer 2
+stack_model: Copy layer 0 to layer 1
+stack_model: Copy layer 0 to layer 0
+ 20%|██        | 2/10 [00:03<00:12,  1.61s/it]                                              {'loss': 10.519, 'learning_rate': 9.698463103929542e-05, 'epoch': 2.0}
+ 20%|██        | 2/10 [00:03<00:12,  1.61s/it][INFO|trainer.py:2926] 2024-02-01 21:50:36,310 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-2
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:36,325 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-2/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:36,327 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-2/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:36,803 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-2/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:36,805 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-2/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:36,806 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-2/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:50:37,141 >> Deleting older checkpoint [experiments/bert-apollo-example/checkpoint-1] due to args.save_total_limit
+stack_model: Copy layer 2 to layer 5
+stack_model: Copy layer 2 to layer 4
+stack_model: Copy layer 1 to layer 3
+stack_model: Copy layer 1 to layer 2
+stack_model: Copy layer 0 to layer 1
+stack_model: Copy layer 0 to layer 0
+ 30%|███       | 3/10 [00:05<00:12,  1.81s/it]                                              {'loss': 10.0002, 'learning_rate': 8.83022221559489e-05, 'epoch': 3.0}
+ 30%|███       | 3/10 [00:05<00:12,  1.81s/it][INFO|trainer.py:2926] 2024-02-01 21:50:38,352 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-3
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:38,367 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-3/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:38,369 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-3/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:38,842 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-3/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:38,845 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-3/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:38,846 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-3/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:50:39,307 >> Deleting older checkpoint [experiments/bert-apollo-example/checkpoint-2] due to args.save_total_limit
+ 40%|████      | 4/10 [00:07<00:11,  1.96s/it]                                              {'loss': 9.672, 'learning_rate': 7.500000000000001e-05, 'epoch': 4.0}
+ 40%|████      | 4/10 [00:07<00:11,  1.96s/it][INFO|trainer.py:2926] 2024-02-01 21:50:40,551 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-4
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:40,565 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-4/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:40,567 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-4/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:41,040 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-4/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:41,043 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-4/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:41,044 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-4/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:50:41,505 >> Deleting older checkpoint [experiments/bert-apollo-example/checkpoint-3] due to args.save_total_limit
+ 50%|█████     | 5/10 [00:09<00:10,  2.03s/it]                                              {'loss': 9.4851, 'learning_rate': 5.868240888334653e-05, 'epoch': 5.0}
+ 50%|█████     | 5/10 [00:09<00:10,  2.03s/it][INFO|trainer.py:2926] 2024-02-01 21:50:42,719 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-5
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:42,730 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-5/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:42,732 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-5/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:43,191 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-5/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:43,193 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-5/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:43,195 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-5/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:50:43,656 >> Deleting older checkpoint [experiments/bert-apollo-example/checkpoint-4] due to args.save_total_limit
+stack_model: Copy layer 5 to layer 11
+stack_model: Copy layer 5 to layer 10
+stack_model: Copy layer 4 to layer 9
+stack_model: Copy layer 4 to layer 8
+stack_model: Copy layer 3 to layer 7
+stack_model: Copy layer 3 to layer 6
+stack_model: Copy layer 2 to layer 5
+stack_model: Copy layer 2 to layer 4
+stack_model: Copy layer 1 to layer 3
+stack_model: Copy layer 1 to layer 2
+stack_model: Copy layer 0 to layer 1
+stack_model: Copy layer 0 to layer 0
+[rank3]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank6]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank4]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank0]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank2]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank5]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank7]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank1]:[W reducer.cpp:1360] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+ 60%|██████    | 6/10 [00:12<00:08,  2.20s/it]                                              {'loss': 9.3733, 'learning_rate': 4.131759111665349e-05, 'epoch': 6.0}
+ 60%|██████    | 6/10 [00:12<00:08,  2.20s/it][INFO|trainer.py:2926] 2024-02-01 21:50:45,263 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-6
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:45,279 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-6/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:45,282 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-6/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:45,761 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-6/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:45,763 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-6/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:45,764 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-6/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:50:46,557 >> Deleting older checkpoint [experiments/bert-apollo-example/checkpoint-5] due to args.save_total_limit
+ 70%|███████   | 7/10 [00:15<00:07,  2.42s/it]                                              {'loss': 9.2904, 'learning_rate': 2.500000000000001e-05, 'epoch': 7.0}
+ 70%|███████   | 7/10 [00:15<00:07,  2.42s/it][INFO|trainer.py:2926] 2024-02-01 21:50:48,111 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-7
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:48,128 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-7/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:48,130 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-7/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:48,603 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-7/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:48,606 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-7/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:48,607 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-7/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:50:49,373 >> Deleting older checkpoint [experiments/bert-apollo-example/checkpoint-6] due to args.save_total_limit
+ 80%|████████  | 8/10 [00:17<00:05,  2.53s/it]                                              {'loss': 9.2153, 'learning_rate': 1.1697777844051105e-05, 'epoch': 8.0}
+ 80%|████████  | 8/10 [00:17<00:05,  2.53s/it][INFO|trainer.py:2926] 2024-02-01 21:50:50,882 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-8
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:50,896 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-8/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:50,898 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-8/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:51,365 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-8/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:51,367 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-8/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:51,369 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-8/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:50:52,136 >> Deleting older checkpoint [experiments/bert-apollo-example/checkpoint-7] due to args.save_total_limit
+ 90%|█████████ | 9/10 [00:20<00:02,  2.62s/it]                                              {'loss': 9.18, 'learning_rate': 3.0153689607045845e-06, 'epoch': 9.0}
+ 90%|█████████ | 9/10 [00:20<00:02,  2.62s/it][INFO|trainer.py:2926] 2024-02-01 21:50:53,703 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-9
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:53,716 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-9/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:53,718 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-9/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:54,199 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-9/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:54,201 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-9/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:54,203 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-9/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:50:54,959 >> Deleting older checkpoint [experiments/bert-apollo-example/checkpoint-8] due to args.save_total_limit
+100%|██████████| 10/10 [00:23<00:00,  2.68s/it]                                               {'loss': 9.1616, 'learning_rate': 0.0, 'epoch': 10.0}
+100%|██████████| 10/10 [00:23<00:00,  2.68s/it][INFO|trainer.py:2926] 2024-02-01 21:50:56,517 >> Saving model checkpoint to experiments/bert-apollo-example/tmp-checkpoint-10
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:56,532 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-10/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:56,534 >> Configuration saved in experiments/bert-apollo-example/tmp-checkpoint-10/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:57,003 >> Model weights saved in experiments/bert-apollo-example/tmp-checkpoint-10/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:57,006 >> tokenizer config file saved in experiments/bert-apollo-example/tmp-checkpoint-10/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:57,007 >> Special tokens file saved in experiments/bert-apollo-example/tmp-checkpoint-10/special_tokens_map.json
+[INFO|trainer.py:3018] 2024-02-01 21:50:57,754 >> Deleting older checkpoint [experiments/bert-apollo-example/checkpoint-9] due to args.save_total_limit
+[INFO|trainer.py:1962] 2024-02-01 21:50:57,839 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               {'train_runtime': 28.6427, 'train_samples_per_second': 441.997, 'train_steps_per_second': 0.349, 'train_loss': 9.639435577392579, 'epoch': 10.0}
+100%|██████████| 10/10 [00:24<00:00,  2.68s/it]100%|██████████| 10/10 [00:24<00:00,  2.48s/it]
+[INFO|trainer.py:2926] 2024-02-01 21:50:57,863 >> Saving model checkpoint to experiments/bert-apollo-example
+[INFO|configuration_utils.py:473] 2024-02-01 21:50:57,868 >> Configuration saved in experiments/bert-apollo-example/config.json
+[INFO|configuration_utils.py:594] 2024-02-01 21:50:57,871 >> Configuration saved in experiments/bert-apollo-example/generation_config.json
+[INFO|modeling_utils.py:2495] 2024-02-01 21:50:58,383 >> Model weights saved in experiments/bert-apollo-example/model.safetensors
+[INFO|tokenization_utils_base.py:2433] 2024-02-01 21:50:58,388 >> tokenizer config file saved in experiments/bert-apollo-example/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-02-01 21:50:58,389 >> Special tokens file saved in experiments/bert-apollo-example/special_tokens_map.json
+***** train metrics *****
+  epoch                    =       10.0
+  train_loss               =     9.6394
+  train_runtime            = 0:00:28.64
+  train_samples            =       1266
+  train_samples_per_second =    441.997
+  train_steps_per_second   =      0.349
